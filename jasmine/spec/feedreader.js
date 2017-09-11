@@ -67,7 +67,7 @@ $(function () {
             var classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
             expect(classList).not.toContain("menu-hidden");
             $("a[data-id='1']").click();
-            var classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
+            classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
             expect(classList).toContain("menu-hidden");
         });
     });
