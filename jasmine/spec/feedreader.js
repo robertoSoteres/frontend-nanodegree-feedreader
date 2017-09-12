@@ -66,7 +66,11 @@ $(function () {
             $('.menu-icon-link').click();
             var classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
             expect(classList).not.toContain("menu-hidden");
+            $('.menu-icon-link').click();
+            classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
+            expect(classList).toContain("menu-hidden");
             $("a[data-id='1']").click();
+
             classList = document.getElementsByTagName('body')[0].className.split(/\s+/);
             expect(classList).toContain("menu-hidden");
         });
@@ -83,8 +87,8 @@ $(function () {
             loadFeed(0, done);
         });
         it('should have at least one entry in the feed', function (done) {
-            expect($('.feed > .entry-link').length).not.toBe(0);
-            done();
+            var $container = $('.feed');
+            expect($container.has('.entry').length).not.toBe(0);
         });
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
